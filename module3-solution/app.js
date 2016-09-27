@@ -23,22 +23,19 @@
 
     }
 
-
-
     NarrowItDownController.$inject = ['MenuSearchService'];
 
     function NarrowItDownController(MenuSearchService) {
+        var ctrl = this;
 
-        this.input = "";
+        ctrl.getMatchedItems = function(searchTerm) {
+            MenuSearchService.getMatchedMenuItems(searchTerm).then(function(result) {
+                ctrl.found = result;
+            });
+        }
 
-        this.found = [{
-            name: "Name",
-            short_name: "Short Name",
-            description: "Description"
-        }]
-
-        this.getMatchedItems = function(searchTerm) {
-            this.found = MenuSearchService.getMatchedMenuItems(searchTerm);
+        ctrl.removeItem = function(index) {
+            MenuSearchService.removeItem(index);
         }
 
     }
@@ -46,36 +43,37 @@
     MenuSearchService.$inject = ['$http'];
 
     function MenuSearchService($http) {
+        var service = this;
 
-        this.getMatchedMenuItems = function(searchTerm) {
-            var response = $http({
+        service.foundItems = [];
+
+        service.getMatchedMenuItems = function(searchTerm) {
+            service.foundItems = [];
+            return $http({
                 method: 'GET',
-                url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
-            })
-
-            response.then(function(result) {
+                url: 'https://jayemes.github.io/coursera-angularjs/module3-solution/menu_items.json'
+                    // url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
+            }).then(function(result) {
                 var allItems = result.data.menu_items;
-                var foundItems = [];
 
                 for (var i = 0; i < allItems.length; i++) {
                     var item = allItems[i];
                     if (item.description.indexOf(searchTerm.toLowerCase()) != -1) {
-                        foundItems.push(item);
+                        service.foundItems.push(item);
                     }
                 }
 
-                console.log("Found " + foundItems.length + " items!");
-                return foundItems
-
-            })
-
+                console.log("Found " + service.foundItems.length + " items!");
+                return service.foundItems;
+            });
         }
+
+        service.removeItem = function(index) {
+            service.foundItems.splice(index, 1);
+        }
+
+
     }
-
-
-
-
-
 
 
 })();

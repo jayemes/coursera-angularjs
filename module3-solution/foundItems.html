@@ -1,6 +1,14 @@
-<h3>List</h3>
-<ul>
-    <li ng-repeat="item in ctrl.items">
-        {{ item.name }}, {{ item.short_name }}, {{ item.description }}
-    </li>
-</ul>
+<div class="row" ng-repeat="item in ctrl.items">
+    <div class="col-sm-3 col-xs-8">
+        <p>{{ item.name }}</p>
+    </div>
+    <div class="col-sm-1 col-xs-4 text-center">
+        <p>{{ item.short_name }}</p>
+    </div>
+    <div class="col-sm-5 col-xs-8">
+        <p>{{ item.description }}</p>
+    </div>
+    <div class="col-sm-3 col-xs-4 text-center">
+        <button class="btn btn-danger rotate" ng-click="ctrl.onRemove({index: $index})">Not this @#*%!</button>
+    </div>
+</div>
