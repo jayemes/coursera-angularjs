@@ -28,6 +28,8 @@
     function NarrowItDownController(MenuSearchService) {
         var ctrl = this;
 
+        ctrl.input = "";
+
         ctrl.getMatchedItems = function(searchTerm) {
             MenuSearchService.getMatchedMenuItems(searchTerm).then(function(result) {
                 ctrl.found = result;
@@ -54,11 +56,16 @@
                 url: 'https://jayemes.github.io/coursera-angularjs/module3-solution/menu_items.json'
                     // url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
             }).then(function(result) {
+                if (searchTerm == ""){
+                    return service.foundItems;
+                    console.log(service.foundItems);
+                }
+
                 var allItems = result.data.menu_items;
 
                 for (var i = 0; i < allItems.length; i++) {
                     var item = allItems[i];
-                    if (item.description.indexOf(searchTerm.toLowerCase()) != -1) {
+                    if (item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) != -1) {
                         service.foundItems.push(item);
                     }
                 }
