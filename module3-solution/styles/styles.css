@@ -13,12 +13,13 @@
         
         .row {
             padding: 10px 0;
-            animation: even-row-frames 1s ease-in-out 1;
+            animation: even-row-frames .5s ease-out 1;
+            transform-origin: top center;
         }
         
         .row:nth-child(odd) {
             background: rgba(0, 200, 0, .1);
-            animation: odd-row-frames 1s ease-in-out 1;
+            animation: odd-row-frames .5s ease-out 1;
         }
         
         .narrow-button {
@@ -73,22 +74,22 @@
         
         @keyframes odd-row-frames {
             0% {
-                transform: translateX(-100vw);
-                opacity: 0;
+                transform: rotateX(-100deg);
+                opacity: .4;
             }
             100% {
-                transform: translateX(0px);
+                transform: rotateX(0deg);;
                 opacity: 1;
             }
         }
         
         @keyframes even-row-frames {
             0% {
-                transform: translateX(100vw);
-                opacity: 0;
+                transform: rotateX(-100deg);
+                opacity: .4;
             }
             100% {
-                transform: translateX(0px);
+                transform: rotateX(0deg);
                 opacity: 1;
             }
         }
