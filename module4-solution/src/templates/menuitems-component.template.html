@@ -1,0 +1,12 @@
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    <tr ng-repeat="item in $ctrl.items">
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>${{item.price_large}}</td>
+    </tr>
+</table>

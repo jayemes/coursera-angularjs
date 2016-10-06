@@ -1,0 +1,114 @@
+body {
+    background-image: url('flower-tile.jpg');
+}
+
+hr {
+    border-color: black !important;
+}
+
+.home-img {
+    background-image: url("home-image.jpg");
+    background-size: 100%;
+    background-position: center center;
+    width: 100%;
+    height: 50vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .6s ease-out;
+}
+
+.home-img:hover {
+    background-size: 120%;
+}
+
+table {
+    perspective: 1000px;
+    perspective-origin: 20vw 50vh;
+    background: #ba1f2d;
+}
+
+tr {
+    background: rgb(230, 230, 230);
+    transform: translateZ(0px);
+    transition: all .4s ease-out;
+}
+
+tr:hover {
+    transform: translateZ(20px);
+}
+
+tr:first-child:hover {
+    transform: translateZ(0px);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.container {
+    background: rgba(255, 255, 255, .9);
+    min-height: 100vh;
+}
+
+.spinner {
+    position: absolute;
+    top: calc(50vh - 75px);
+    left: calc(50vw - 75px);
+    /*    top: 0px;
+    left: 0px;*/
+    height: 150px;
+    width: 150px;
+    z-index: 10000;
+    background: #ecc83b;
+    animation: breather .5s linear 0s alternate infinite;
+    transition: all .3s ease-out;
+}
+
+@keyframes breather {
+    0% {
+        transform: rotate(0deg);
+        -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+    100% {
+        background: orange;
+        transform: rotate(90deg);
+        -webkit-clip-path: polygon(50% 0%, 78% 14%, 98% 35%, 91% 63%, 79% 91%, 48% 93%, 21% 91%, 9% 66%, 2% 35%, 22% 13%);
+        clip-path: polygon(50% 0%, 78% 14%, 98% 35%, 91% 63%, 79% 91%, 48% 93%, 21% 91%, 9% 66%, 2% 35%, 22% 13%);
+    }
+}
+
+.thing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: rgb(180, 20, 20);
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    transition: all .5s ease-out;
+    transform-origin: center center;
+    opacity: 0;
+}
+
+.thing-parent {
+    overflow: hidden;
+    height: 50px;
+    margin: 5px 0px;
+}
+
+.thing-parent h3 {
+    line-height: 50px;
+    margin: 0px;
+}
+
+.thing-parent h3:before {
+    content: "\8759  "
+}
+
+.thing-parent:hover .thing {
+    transform: scale(25);
+    opacity: .25;
+}

@@ -1,0 +1,21 @@
+<!-- <table class="table table-striped">
+    <tr>
+        <th>Short Name</th>
+        <th>Category</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="item in $ctrl.items">
+        <td>{{item.short_name}}</td>
+        <td>{{item.name}}</td>
+        <td>
+            <button ui-sref="items({shortName: item.short_name})" class="btn btn-success btn-sm">Tell me more!</button>
+        </td>
+    </tr>
+</table>
+ -->
+<ul class="row">
+    <div class="col-md-4 col-xs-6 clickable text-center thing-parent" ng-repeat="item in $ctrl.items" ui-sref="items({shortName: item.short_name})">
+        <h3>{{item.name}}</h3>
+        <div class="thing"></div>
+    </div>
+</ul>

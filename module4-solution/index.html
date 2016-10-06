@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Narrow Down Your Menu Choice </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+
+<body ng-app="MenuApp">
+    <loading-spinner></loading-spinner>
+    <!--  -->
+    <div class="container">
+        <h1 ui-sref="home" class="text-center clickable">The Silken Dragon - Chinese Restaurant</h1>
+        <p class="text-center"><em>The flavors of the far east in your backyard</em></p>
+        <hr>
+        <ui-view></ui-view>
+    </div>
+    <!--  -->
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <!-- Modules -->
+    <script src="src/menuapp.module.js"></script>
+    <script src="src/data.module.js"></script>
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+    <!-- Components & Services-->
+    <script src="src/categories.component.js"></script>
+    <script src="src/categories.controller.js"></script>
+    <!--  -->
+    <script src="src/menuitems.component.js"></script>
+    <script src="src/menuitems.controller.js"></script>
+    <!--  -->
+    <script src="src/spinner.component.js"></script>
+    <!--  -->
+    <script src="src/menudata.service.js"></script>
+</body>
+
+</html>
