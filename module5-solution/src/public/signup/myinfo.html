@@ -1,0 +1,49 @@
+<div class="container">
+    <h2 class="text-center">This is the information you've submitted</h2>
+    <br>
+    <div ng-if="!info.savedInfo" class="alert alert-warning">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></div>
+    <div class="text-center" ng-if="info.savedInfo">
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <p>First Name</p>
+            </div>
+            <div class="col-xs-6 col-md-9">
+                <p>{{ info.user.firstname }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <p>Last Name </p>
+            </div>
+            <div class="col-xs-6 col-md-9">
+                <p>{{ info.user.lastname }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <p>Email</p>
+            </div>
+            <div class="col-xs-6 col-md-9">
+                <p>{{ info.user.email}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-md-3">
+                <p>Phone Number</p>
+            </div>
+            <div class="col-xs-6 col-md-9">
+                <p>{{ info.user.phone}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <p>Favorite Dish</p>s
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <menu-item menu-item="info.favoriteItem"></menu-item>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

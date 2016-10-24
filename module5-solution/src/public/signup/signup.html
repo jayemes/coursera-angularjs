@@ -1,0 +1,37 @@
+<div class="container">
+    <h2 class="text-center">Sign up to our newsletter</h2>
+    <div class="text-center">
+        <fieldset style="width: 80%; margin: 0 auto">
+            <legend> Sign Up Information</legend>
+            <form name="regForm" novalidate>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input class="form-control" type="text" name="firstname" placeholder="Your firstname" required ng-model="reg.user.firstname" ng-minlength="1" ng-maxlength="20">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input class="form-control" type="text" name="lastname" placeholder="Your lastname" required ng-model="reg.user.lastname" ng-minlength="1" ng-maxlength="30">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input class="form-control" type="email" name="email" placeholder="Email" required ng-model="reg.user.email">
+                    <span ng-if="regForm.email.$invalid && regForm.email.$touched">Must be a valid email address: handle@domain format</span>
+                </div>
+                <!--  -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input class="form-control" type="text" name="phone" placeholder="###-####" ng-model="reg.user.phone" required pattern="(\d{3})-(\d{4})">
+                    <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">Phone must be in the format ###-####.</span>
+                </div>
+                <div class="form-group">
+                    <label for="favorite">Favorite Dish</label>
+                    <input class="form-control" type="text" required name="favorite" ng-model="reg.user.favorite" placeholder="_ _">
+                    <span ng-if=reg.favoriteMiss>No such menu number exists</span>
+                </div>
+                <button class="btn btn-success btn-sm" ng-disabled="regForm.$invalid" ng-click="reg.submit()">Submit</button>
+            </form>
+        </fieldset>
+    </div>
+    <br>
+    <div ng-if=reg.savedInfo class="alert alert-info">Your information has been saved</div>
+</div>
